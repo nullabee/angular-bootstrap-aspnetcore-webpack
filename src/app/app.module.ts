@@ -15,6 +15,9 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+import { AlertModule, DatepickerModule } from 'ngx-bootstrap';
+
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -60,7 +63,9 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    AlertModule.forRoot(),
+    DatepickerModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

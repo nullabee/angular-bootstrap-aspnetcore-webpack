@@ -2,7 +2,7 @@
   <h1 x-large class="sample-content">Your Content Here</h1>
 
   <hr>
-
+  
   <div>
     For hot module reloading run
     <pre>npm run start:hmr</pre>
@@ -20,6 +20,11 @@
         (input)="localState.value = $event.target.value"
         placeholder="Submit Local State to App State"
         autofocus>
+
+      <alert type="info">Hello from ngx-bootstrap  {{ date.toDateString() }}</alert>
+      <div style="display:inline-block; min-height:290px;">
+        <datepicker [(ngModel)]="date" showWeeks="true" name="datepicker"></datepicker>
+      </div>
 
       <button>Submit Value</button>
     </form>
