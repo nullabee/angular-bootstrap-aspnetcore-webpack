@@ -58,9 +58,9 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'polyfills': './ngsrc/polyfills.browser.ts',
+      'main':      AOT ? './ngsrc/main.browser.aot.ts' :
+                  './ngsrc/main.browser.ts'
 
     },
 
@@ -79,7 +79,7 @@ module.exports = function (options) {
       extensions: ['.ts', '.js', '.json'],
 
       // An array of directory names to be resolved to the current directory
-      modules: [helpers.root('src'), helpers.root('node_modules')],
+      modules: [helpers.root('ngsrc'), helpers.root('node_modules')],
 
     },
 
@@ -154,7 +154,7 @@ module.exports = function (options) {
         {
           test: /\.css$/,
           use: ['to-string-loader', 'css-loader'],
-          exclude: [helpers.root('src', 'styles')]
+          exclude: [helpers.root('ngsrc', 'styles')]
         },
 
         /*
@@ -165,7 +165,7 @@ module.exports = function (options) {
         {
           test: /\.scss$/,
           use: ['to-string-loader', 'css-loader', 'sass-loader'],
-          exclude: [helpers.root('src', 'styles')]
+          exclude: [helpers.root('ngsrc', 'styles')]
         },
 
         /* Raw loader support for *.html
@@ -176,7 +176,7 @@ module.exports = function (options) {
         {
           test: /\.html$/,
           use: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
+          exclude: [helpers.root('ngsrc/index.html')]
         },
 
         /* 
@@ -250,7 +250,7 @@ module.exports = function (options) {
       new ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
         /angular(\\|\/)core(\\|\/)@angular/,
-        helpers.root('src'), // location of your src
+        helpers.root('ngsrc'), // location of your src
         {
           // your Angular Async Route paths relative to this root directory
         }
@@ -265,8 +265,8 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
-        { from: 'src/assets', to: 'assets' },
-        { from: 'src/meta'}
+        { from: 'ngsrc/assets', to: 'assets' },
+        { from: 'ngsrc/meta'}
       ]),
 
 
@@ -279,7 +279,7 @@ module.exports = function (options) {
        * See: https://github.com/ampedandwired/html-webpack-plugin
        */
       new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: 'ngsrc/index.html',
         title: METADATA.title,
         chunksSortMode: 'dependency',
         metadata: METADATA,
