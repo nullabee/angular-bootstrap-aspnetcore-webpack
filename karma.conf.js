@@ -1,5 +1,5 @@
 /**
- * @author: @AngularClass
+ * @author: @Nullabee
  */
 
 // Look in ./config for karma.conf.js

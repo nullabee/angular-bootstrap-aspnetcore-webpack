@@ -25,9 +25,9 @@
   },
   "exclude": [
     "node_modules",
-    "dist",
-    "src/**/*.spec.ts",
-    "src/**/*.e2e.ts"
+    "wwwroot",
+    "ngsrc/**/*.spec.ts",
+    "ngsrc/**/*.e2e.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,

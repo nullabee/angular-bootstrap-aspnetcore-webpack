@@ -1,5 +1,5 @@
 {
-  "name": "angular-bootstrap-aspnetcore-webpack",
+  "name": "ngxstrap",
   "version": "0.1.0",
   "description": "Angular 4 + Bootstrap 3 + AspNetCore 1.1 + Webpack 2",
   "keywords": [
@@ -11,28 +11,25 @@
     "webpack",
     "typescript"
   ],
+  "homepage": "https://github.com/nullabee/ngxstrap",
   "scripts": {
     "build:aot:prod": "npm run clean:dist && npm run clean:aot && webpack --config config/webpack.prod.js  --progress --profile --bail",
     "build:aot": "npm run build:aot:prod",
     "build:dev": "npm run clean:dist && webpack --config config/webpack.dev.js --progress --profile",
-    "build:docker": "npm run build:prod && docker build -t angular2-webpack-start:latest .",
     "build:prod": "npm run clean:dist && webpack --config config/webpack.prod.js  --progress --profile --bail",
     "build": "npm run build:dev",
     "ci:aot": "npm run lint && npm run test && npm run build:aot && npm run e2e",
     "ci:jit": "npm run lint && npm run test && npm run build:prod && npm run e2e",
     "ci:nobuild": "npm run lint && npm test && npm run e2e",
     "ci:testall": "npm run lint && npm run test && npm run build:prod && npm run e2e && npm run build:aot && npm run e2e",
-    "ci:travis": "npm run lint && npm run test && npm run build:aot && npm run e2e:travis",
     "ci": "npm run ci:testall",
     "clean:dll": "npm run rimraf -- dll",
     "clean:aot": "npm run rimraf -- compiled",
     "clean:dist": "npm run rimraf -- wwwroot",
     "clean:install": "npm set progress=false && npm install",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage wwwroot compiled dll",
-    "docker": "docker",
-    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./ngsrc/",
     "e2e:live": "npm-run-all -p -r server:prod:ci protractor:live",
-    "e2e:travis": "npm-run-all -p -r server:prod:ci protractor:delay",
     "e2e": "npm-run-all -p -r server:prod:ci protractor",
     "lint": "npm run tslint \"src/**/*.ts\"",
     "postinstall": "npm run webdriver:update",
@@ -44,7 +41,7 @@
     "protractor:live": "protractor --elementExplorer",
     "rimraf": "rimraf",
     "server:dev:hmr": "npm run server:dev -- --inline --hot",
-    "server:dev": "webpack-dev-server --config config/webpack.dev.js --open --progress --profile --watch --content-base src/",
+    "server:dev": "webpack-dev-server --config config/webpack.dev.js --open --progress --profile --watch --content-base ngsrc/",
     "server:prod": "http-server wwwroot -c-1 --cors",
     "server:prod:ci": "http-server wwwroot -p 3000 -c-1 --cors",
     "server": "npm run server:dev",
@@ -155,10 +152,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+    "url": "https://github.com/nullabee/ngxstrap.git"
   },
   "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+    "url": "https://github.com/nullabee/ngxstrap/issues"
   },
   "engines": {
     "node": ">= 4.2.1",

@@ -21,12 +21,13 @@
         placeholder="Submit Local State to App State"
         autofocus>
 
+      <button>Submit Value</button>
+      
       <alert type="info">Hello from ngx-bootstrap  {{ date.toDateString() }}</alert>
       <div style="display:inline-block; min-height:290px;">
         <datepicker [(ngModel)]="date" showWeeks="true" name="datepicker"></datepicker>
       </div>
 
-      <button>Submit Value</button>
     </form>
     <!--
         <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
